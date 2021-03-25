@@ -72,16 +72,16 @@ function checkBirdMovement() {
 //http://keycode.info/ use to get the code for each keyboard key ie: 1 === 49; 2 === 50; 
 function checkGhostMovement() {
   if(keyIsDown(49))  //PRESS "1" KEY
-    ghost.velocity.x = 5;
+    ghost.velocity.x = 1;
   else if(keyIsDown(50)) //press "2"
-    ghost.velocity.x = -5;
+    ghost.velocity.x = -1;
   else
     ghost.velocity.x = 0;
 
   if(keyIsDown(51)) //press "3"
-    ghost.velocity.y = 4;
+    ghost.velocity.y = 2;
   else if(keyIsDown(52)) //press"4
-    ghost.velocity.y = -4;
+    ghost.velocity.y = -2;
   else
     ghost.velocity.y = 0;
 }
