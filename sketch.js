@@ -14,10 +14,11 @@ var showDebugScreen = false;
 
 var oddBird;
 var ghost;
+var oddBirdClucking;
 
 function preload() {
-  oddBird = loadAnimation('assets/blueblob-01.png', 'assets/blueblob-05.png');
-  ghost = loadAnimation('assets/ghost_standing0001.png', 'assets/ghost_standing0007.png');
+  oddBird = loadAnimation('assets/blueblob-01.png', 'assets/blueblob-05.png')
+  // ghost = loadAnimation('assets/ghost_standing0001.png', 'assets/ghost_standing0007.png');
 }
 
 // Setup code goes here
@@ -27,14 +28,14 @@ function setup() {
   debugScreen = new DebugScreen();
 
   // create a sprite and animations
-  oddBird = createSprite(400, 150);
-  ghost = createSprite(600, 300);
+  oddBird = createSprite((width/2) - (width/6), height/2);
+  // ghost = createSprite((width/2) + (width/6), height/2);
 
   //label, first frame, last frame
   //the addAnimation method returns the added animation
   //that can be store in a temporary variable to change parameters
-  var myAnimation = oddBird.addAnimation('floating', 'assets/blueblob-01.png', 'assets/blueblob-05.png');
-  var myGhostAnimation = ghost.addAnimation('floating', 'assets/ghost_standing0001.png', 'assets/ghost_standing0007.png');
+  var myAnimation = oddBird.addAnimation('flying', 'assets/blueblob-01.png', 'assets/blueblob-05.png');
+  // var myGhostAnimation = ghost.addAnimation('floating', 'assets/ghost_standing0001.png', 'assets/ghost_standing0007.png');
  }
 
 // Draw code goes here
@@ -42,11 +43,11 @@ function draw() {
   background(200, 250, 10);
  
   checkBirdMovement();
-  checkGhostMovement();
+  // checkGhostMovement();
 
   //draw the sprite
   drawSprites();
-  
+
   if(showDebugScreen ) {
     debugScreen.draw();
   }
@@ -69,22 +70,23 @@ function checkBirdMovement() {
 }
 
 
-//http://keycode.info/ use to get the code for each keyboard key ie: 1 === 49; 2 === 50; 
-function checkGhostMovement() {
-  if(keyIsDown(49))  //PRESS "1" KEY
-    ghost.velocity.x = 1;
-  else if(keyIsDown(50)) //press "2"
-    ghost.velocity.x = -1;
-  else
-    ghost.velocity.x = 0;
 
-  if(keyIsDown(51)) //press "3"
-    ghost.velocity.y = 2;
-  else if(keyIsDown(52)) //press"4
-    ghost.velocity.y = -2;
-  else
-    ghost.velocity.y = 0;
-}
+//http://keycode.info/ use to get the code for each keyboard key ie: 1 === 49; 2 === 50; 
+// function checkGhostMovement() {
+//   if(keyIsDown(49))  //PRESS "1" KEY
+//     ghost.velocity.x = 1;
+//   else if(keyIsDown(50)) //press "2"
+//     ghost.velocity.x = -1;
+//   else
+//     ghost.velocity.x = 0;
+
+//   if(keyIsDown(51)) //press "3"
+//     ghost.velocity.y = 2;
+//   else if(keyIsDown(52)) //press"4
+//     ghost.velocity.y = -2;
+//   else
+//     ghost.velocity.y = 0;
+// }
 
 function mouseReleased() {
   debugScreen.print("mouseReleased at x: " + mouseX + " y: " + mouseY + " millis = " + millis() );
