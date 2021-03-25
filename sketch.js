@@ -68,21 +68,22 @@ function checkBirdMovement() {
     oddBird.velocity.y = 0;
 }
 
+
+//http://keycode.info/ use to get the code for each keyboard key ie: 1 === 49; 2 === 50; 
 function checkGhostMovement() {
-  if(keyIsDown(RIGHT_ARROW))
-    ghost.velocity.x = 3;
-  else if(keyIsDown(LEFT_ARROW))
-    ghost.velocity.x = -3;
+  if(keyIsDown(49))  //PRESS "1" KEY
+    ghost.velocity.x = 5;
+  else if(keyIsDown(50)) //press "2"
+    ghost.velocity.x = -5;
   else
     ghost.velocity.x = 0;
 
-  if(keyIsDown(DOWN_ARROW))
-    ghost.velocity.y = 3;
-  else if(keyIsDown(UP_ARROW))
-    ghost.velocity.y = -3;
+  if(keyIsDown(51)) //press "3"
+    ghost.velocity.y = 4;
+  else if(keyIsDown(52)) //press"4
+    ghost.velocity.y = -4;
   else
     ghost.velocity.y = 0;
-
 }
 
 function mouseReleased() {
